@@ -148,40 +148,73 @@ export const am_broadcast = [
       , () => {
           CAT.setFrequency(6140000);
 	CAT.set_MODE_AME();
-    }),
-  new Bookmark (
-      `CHN 6 Chinese National Radio AM Broadcast at 6160kHz`
-    , () => {
-        CAT.setFrequency(6160000);
+      }),
+    new Bookmark (
+        `CHN 6 Chinese National Radio AM Broadcast at 6.160kHz`
+      , () => {
+          CAT.setFrequency(6160000);
 	CAT.set_MODE_AME();
-    }),
-  new Bookmark (
-      `ROU Romania Int. AM Broadcast at 1.1880kHz`
-    , () => {
-        CAT.setFrequency(11880000);
+      }),
+    new Bookmark (
+        `ROU Romania Int. AM Broadcast at 11.880kHz`
+      , () => {
+          CAT.setFrequency(11880000);
 	CAT.set_MODE_AME();
-    }),
-  new Bookmark (
-      `CHN Chinese National Radio AM Broadcast at 11.910kHz`
-    , () => {
-        CAT.setFrequency(11910000);
+      }),
+    new Bookmark (
+        `CHN Chinese National Radio AM Broadcast at 11.910kHz`
+      , () => {
+          CAT.setFrequency(11910000);
 	CAT.set_MODE_AME();
-    }),
-  new Bookmark (
-      `KRE NORTH Korea Radio AM Broadcast at 13.760kHz`
-    , () => {
-        CAT.setFrequency(13760000);
+      }),
+    new Bookmark (
+        `KRE NORTH Korea Radio AM Broadcast at 13.760kHz`
+      , () => {
+          CAT.setFrequency(13760000);
 	CAT.set_MODE_AME();
-    })
-
+      }),
+    new Bookmark (
+        `FRA Radio France International AM Broadcast at 7.205kHz`
+      , () => {
+          CAT.setFrequency(7205000);
+          CAT.set_MODE_AME();
+      }),
+    new Bookmark (
+        `FRA Radio France International AM Broadcast at 9.790kHz`
+      , () => {
+          CAT.setFrequency(9790000);
+          CAT.set_MODE_AME();
+      }),
 ]
+
+function iaru1Band(name: string, fMin: number, fMax: number) {
+  return new Bookmark(
+    `IARU-R1 ${name}m (${fMin}-${fMax}kHz)`
+    , () => {
+        CAT.setFrequency(fMin*1000);
+    }
+  )
+}
+
+// IARU Region 1 (Europa, Afrika) Bandplan
+const iaru1_band_bookmarks = [
+  iaru1Band('160', 1810, 2000),     // 160m Band
+  iaru1Band('80', 3500, 3800),      // 80m Band
+  iaru1Band('40', 7000, 7200),      // 40m Band
+  iaru1Band('30', 10100, 10150),    // 30m Band (WARC)
+  iaru1Band('20', 14000, 14350),    // 20m Band
+  iaru1Band('17', 18068, 18168),    // 17m Band (WARC)
+  iaru1Band('15', 21000, 21450),    // 15m Band
+  iaru1Band('12', 24890, 24990),    // 12m Band (WARC)
+  iaru1Band('10', 28000, 29700)     // 10m Band
+];
 
 export const bookmarks
   = new Array().concat (
     [ frequency_kHz(14010) ]
   , [ magicFrequencyBookmark ]
   , ft8_bookmarks
-  , band_bookmarks
+  , iaru1_band_bookmarks
   , mode_bookmarks
   , xk852Power
   , xk852Extra_bookmarks

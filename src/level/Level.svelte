@@ -17,7 +17,7 @@ let reverse = $derived(espHomeEvent.powerReverse);
 
 function cal (u:number) {
   const u_normal = (u - u_min) / (u_max - u_min);
-  return Math.round(u_normal * u_normal * p_max);
+  return u_normal * u_normal * p_max;
 }
 
 </script>
@@ -26,12 +26,12 @@ function cal (u:number) {
   {#if showSWRMeter}
   <div style="display:flex; flex-direction: column; width:50%;" >
     <PiGauge x={cal(forward)*100/p_max} />
-    <span> Forward Power: {cal(forward)}W</span>
+    <span> Forward Power: {cal(forward).toFixed(1)}W</span>
     <span> raw: {forward}</span>
   </div>
   <div style="display:flex; flex-direction: column; width:50%;" >
     <PiGauge x={cal(reverse)*100/p_max} />
-    <span> Reverse Power: {cal(reverse)}W</span>
+    <span> Reverse Power: {cal(reverse).toFixed(1)}W</span>
   </div>
   {/if}
 </div>

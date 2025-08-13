@@ -143,10 +143,10 @@ const xk852Extra_bookmarks =
   ]
 
 export const am_broadcast = [
-  new Bookmark (
-      `CHN 1 Chinese National Radio AM Broadcast at 6140kHz`
-    , () => {
-        CAT.setFrequency(6140000);
+    new Bookmark (
+        `CHN 1 Chinese National Radio AM Broadcast at 6.140kHz`
+      , () => {
+          CAT.setFrequency(6140000);
 	CAT.set_MODE_AME();
     }),
   new Bookmark (

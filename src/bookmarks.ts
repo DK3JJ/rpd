@@ -196,7 +196,7 @@ function iaru1Band(name: string, fMin: number, fMax: number) {
   )
 }
 
-// IARU Region 1 (Europa, Afrika) Bandplan
+// IARU Region 1 Bandplan
 const iaru1_band_bookmarks = [
   iaru1Band('160', 1810, 2000),     // 160m Band
   iaru1Band('80', 3500, 3800),      // 80m Band

@@ -95,10 +95,6 @@ function band(l:number) {
      )
 }
 
-const band_bookmarks
-  = [ 160, 80, 60, 40, 30
-    , 20, 17, 15, 12, 10].map(l => band(l));
-
 function mode(m:string, action:Action) {
   return new Bookmark (
       `Set ${m} Mode`

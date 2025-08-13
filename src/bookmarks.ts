@@ -88,13 +88,6 @@ const ft8_bookmarks
     , 10136, 14074, 18100, 21074
     , 24915, 28074].map(f => ft8_frequency(f));
 
-function band(l:number) {
-  return new Bookmark (
-      `Jump to ${l}m Band`
-      , null
-     )
-}
-
 function mode(m:string, action:Action) {
   return new Bookmark (
       `Set ${m} Mode`
